@@ -286,12 +286,13 @@ class: middle
 class: top
 .left-column[
 ## Vue Components
+]
 
-### Single File vs *
-### Anatomy of a Vue Component
-### Attribute Binding
-### Event Binding
-### Shorthand Bindings
+.right-column[
+Components are the heart of Vue.  The allow you to break you application down into discreet and modular units of functionality.  
+<br/>
+<br/>
+Components contain their own templates, styles, and logic.  Simply put a component is an atomic, re-usable Vue instance.
 ]
 
 ---
@@ -300,12 +301,232 @@ class: top
 .left-column[
 ## Vue Components
 
-### Binding to Computed Properties
+### Single File vs *
+]
+
+.right-column[
+Vue.js is incredibly flexible and does not lock you into any particular path.  In fact there are at least seven different ways to
+define a component template in Vue:
+- String template
+- Inline Template
+- Render Functions
+- Template Literals
+- X-Templates 
+- JSX
+- Single File/Page Components
+
+Of all these I find the that single file components are the easiest to work with and keep organized.  They do require transpiling but since we are using the CLI 
+this happens automagically thanks to Webpack and the Vue loader.
+]
+
+
+---
+
+class: top
+.left-column[
+## Vue Components
+
+### Single File vs *
+]
+
+.right-column[
+A single file template component the template, the javascript, and the styling for the component
+```xml
+<template>
+    <div class="checkbox-wrapper" @click="check">
+      <div :class="{ checkbox: true, checked: checked }"></div>
+      <div class="title"></div>
+    </div>
+</template>
+
+<script>
+    export default {
+      data() {
+        return { checked: false, title: 'Check me' }
+      },
+      methods: {
+        check() { this.checked = !this.checked; }
+      }
+    }
+</script>
+
+<style scoped lang="scss">
+    .checkbox-wrapper {..}
+</style>
+```
+]
+
+---
+
+class: top
+.left-column[
+## Vue Components
+
+### Single File vs *
+### Anatomy of a Vue Component
+]
+
+.right-column[
+Vue components are very straight forward and highly readable:
+```javascript
+import createdHookMixin from '../mixins/created-hook-mixin';
+import partsSelector from './parts/parts-selector.vue';
+import collapsibleSection from './collapsible-section.vue';
+
+export default {
+    name: 'shopping-cart',
+    created() {},
+    components: { partsSelector, collapsibleSection },
+    data() {
+        return {...}
+        };
+    },
+    methods: {
+        addToCart(item) {...}
+    },
+    computed: {...}
+    },
+    mixins: [createdHookMixin]
+};
+
+```
+]
+
+---
+
+class: top
+.left-column[
+## Vue Components
+
+### Single File vs *
+### Anatomy of a Vue Component
+### Attribute Binding
+]
+.right-column[
+Attribute binding is just what it sounds like, binding html attributes to Vue models, data objects, computed properties:
+```html 
+<img v-bind:src="selectedItem.src"/>
+```
+or we can use Vue's shorthand syntax:
+```html 
+<img :src="selectedItem.src"/>
+```
+]
+
+---
+
+class: top
+.left-column[
+## Vue Components
+
+### Single File vs *
+### Anatomy of a Vue Component
+### Attribute Binding
+### Event Binding
+]
+.right-column[
+Event binding in Vue is just as simple as attribute binding and it also has a shorthand syntax:
+```html 
+<button v-on:click="selectPreviousItem()"></button>
+```
+Againt in the shorthand syntax:
+```html 
+<button @click="selectPreviousItem()"></button>
+```
+When the button is clicked we run some javascript (typically component methods)
+]
+
+
+---
+
+class: top
+.left-column[
+## Vue Components
+
+### Interpolation
+]
+.right-column[
+    Vue can also interpolate data within templates for simple unidirectional binding:
+```html 
+<td class="cost"> {{ item.cost }} </td>
+```
+]
+
+---
+
+class: top
+.left-column[
+## Vue Components
+
+### Interpolation
+### Condtional Displays
+]
+.right-column[
+    You can conditionally display elements on the DOM using ```v-if``` and ```v-show```.  These direfctives will evalute an expression and display if truthy.  The primary
+    difference is that v-show still renders the element to the DOM but hides it usinf CSS-based toggling.
+
+```html 
+<template v-if="loginType === 'username'">
+    <label>Username</label>
+    <input placeholder="Enter your username" key="username-input">
+  </template>
+```
+will not be added to the DOM if "falsey" while
+```html 
+<h1 v-show="ok">Hello!</h1>
+``` 
+will beadded to the dom but have its visibility toggled.
+]
+
+---
+
+class: top
+.left-column[
+## Vue Components
+
 ### Interpolation
 ### Condtional Displays
 ### Iterating Data
 ]
+.right-column[
+Iterating data in Vue is simply at first: 
+```html 
+<ul>
+    <li v-for="value in object">
+      {{ value }}
+    </li>
+  </ul>
+```
+but it also allows you to specify additional arguments for the key and / or index:
+```html 
+<div v-for="(value, key) in object">
+    {{ key }}: {{ value }}
+</div>
 
+<div v-for="(value, key, index) in object">
+    {{ index }}. {{ key }}: {{ value }}
+</div>
+```
+]
+
+---
+
+class: top
+.left-column[
+## Vue Components
+
+### Styling Components
+]
+
+class: top
+.left-column[
+## Vue Components
+
+### Styling Components
+### Lifecycle Hooks
+]
+
+---
 ---
 
 class: top
@@ -366,18 +587,7 @@ class: top
 ]
 
 
----
 
-class: top 
-.left-column[
-## Directives and Filters
-
-### Custom Directives
-### Passing Data to Directives
-### Directive Lifecyle Hooks
-### Custom Filters
-### Global Accessibility
-]
 
 
 
