@@ -1,117 +1,120 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Title</title>
+    <title>BUILDING WEB APPS WITH VUE.JS</title>
     <meta charset="utf-8">
     <style>
-      @import url(https://fonts.googleapis.com/css?family=Droid+Serif);
-      @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
-      @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
-      body {
-        font-family: 'Droid Serif';
-      }
-      h1, h2, h3 {
-        font-family: 'Yanone Kaffeesatz';
-        font-weight: 400;
-        margin-bottom: 0;
-      }
-      .remark-slide-content h1 { font-size: 3em; }
-      .remark-slide-content h2 { font-size: 2em; }
-      .remark-slide-content h3 { font-size: 1.6em; }
-      .footnote {
-        position: absolute;
-        bottom: 3em;
-      }
-      li p { line-height: 1.25em; }
-      .red { color: #fa0000; }
-      .large { font-size: 2em; }
-      a, a > code {
-        color: rgb(249, 38, 114);
-        text-decoration: none;
-      }
-      code {
-        background: #e7e8e2;
-        border-radius: 5px;
-      }
-      .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
-      .remark-code-line-highlighted     { background-color: #373832; }
-      .pull-left {
-        float: left;
-        width: 47%;
-      }
-      .pull-right {
-        float: right;
-        width: 47%;
-      }
-      .pull-right ~ p {
-        clear: both;
-      }
-      #slideshow .slide .content code {
-        font-size: 0.8em;
-      }
-      #slideshow .slide .content pre code {
-        font-size: 0.9em;
-        padding: 15px;
-      }
-      .inverse {
-        background: #272822;
-        color: #777872;
-        text-shadow: 0 0 20px #333;
-      }
-      .inverse h1, .inverse h2 {
-        color: #f3f3f3;
-        line-height: 0.8em;
-      }
-      /* Slide-specific styling */
-      #slide-inverse .footnote {
-        bottom: 12px;
-        left: 20px;
-      }
-      #slide-how .slides {
-        font-size: 0.9em;
-        position: absolute;
-        top:  151px;
-        right: 140px;
-      }
-      #slide-how .slides h3 {
-        margin-top: 0.2em;
-      }
-      #slide-how .slides .first, #slide-how .slides .second {
-        padding: 1px 20px;
-        height: 90px;
-        width: 120px;
-        -moz-box-shadow: 0 0 10px #777;
-        -webkit-box-shadow: 0 0 10px #777;
-        box-shadow: 0 0 10px #777;
-      }
-      #slide-how .slides .first {
-        background: #fff;
-        position: absolute;
-        top: 20%;
-        left: 20%;
-        z-index: 1;
-      }
-      #slide-how .slides .second {
-        position: relative;
-        background: #fff;
-        z-index: 0;
-      }
-      /* Two-column layout */
-      .left-column {
-        color: #777;
-        width: 20%;
-        height: 92%;
-        float: left;
-      }
-        .left-column h2:last-of-type, .left-column h3:last-child {
-          color: #000;
+        @import url(https://fonts.googleapis.com/css?family=Droid+Serif);
+        @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+        @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+  
+        body {
+          font-family: 'Droid Serif';
         }
-      .right-column {
-        width: 75%;
-        float: right;
-        padding-top: 1em;
-      }
-    </style>
+        h1, h2, h3 {
+          font-family: 'Yanone Kaffeesatz';
+          font-weight: 400;
+          margin-bottom: 0;
+        }
+        .remark-slide-content h1 { font-size: 3em; }
+        .remark-slide-content h2 { font-size: 2em; }
+        .remark-slide-content h3 { font-size: 1.6em; }
+        .footnote {
+          position: absolute;
+          bottom: 3em;
+        }
+        li p { line-height: 1.25em; }
+        .red { color: #fa0000; }
+        .large { font-size: 2em; }
+        a, a > code {
+          color: rgb(249, 38, 114);
+          text-decoration: none;
+        }
+        code {
+          background: #e7e8e2;
+          border-radius: 5px;
+        }
+        .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
+        .remark-code-line-highlighted     { background-color: #373832; }
+        .pull-left {
+          float: left;
+          width: 47%;
+        }
+        .pull-right {
+          float: right;
+          width: 47%;
+        }
+        .pull-right ~ p {
+          clear: both;
+        }
+        #slideshow .slide .content code {
+          font-size: 0.8em;
+        }
+        #slideshow .slide .content pre code {
+          font-size: 0.9em;
+          padding: 15px;
+        }
+        .inverse {
+          background: #272822;
+          color: #777872;
+          text-shadow: 0 0 20px #333;
+        }
+        .inverse h1, .inverse h2 {
+          color: #f3f3f3;
+          line-height: 0.8em;
+        }
+  
+        /* Slide-specific styling */
+        #slide-inverse .footnote {
+          bottom: 12px;
+          left: 20px;
+        }
+        #slide-how .slides {
+          font-size: 0.9em;
+          position: absolute;
+          top:  151px;
+          right: 140px;
+        }
+        #slide-how .slides h3 {
+          margin-top: 0.2em;
+        }
+        #slide-how .slides .first, #slide-how .slides .second {
+          padding: 1px 20px;
+          height: 90px;
+          width: 120px;
+          -moz-box-shadow: 0 0 10px #777;
+          -webkit-box-shadow: 0 0 10px #777;
+          box-shadow: 0 0 10px #777;
+        }
+        #slide-how .slides .first {
+          background: #fff;
+          position: absolute;
+          top: 20%;
+          left: 20%;
+          z-index: 1;
+        }
+        #slide-how .slides .second {
+          position: relative;
+          background: #fff;
+          z-index: 0;
+        }
+  
+        /* Two-column layout */
+        .left-column {
+          color: #777;
+          width: 20%;
+          height: 92%;
+          float: left;
+        }
+          .left-column h2:last-of-type, .left-column h3:last-child {
+            color: #000;
+          }
+        .right-column {
+          width: 75%;
+          float: right;
+          padding-top: 1em;
+        }
+      </style>
   </head>
   <body>
     <textarea id="source">
@@ -144,12 +147,242 @@ lack of self-preservation instincts and a propensity for injury. I love good sci
 going really fast on anything with two wheels. When not working I enjoy Nerf gun wars with my son, movie night 
 with my wife, long walks with my Doberman, and off-road motorcycle racing.
 ]
+
 ---
 
 class: center, middle, inverse
-# Introduction
+## woodie.westbrook@gmail.com
 
 ---
+
+class: center, middle, inverse
+# Agenda
+
+---
+
+name: agenda-outline
+class: bottom
+
+.left-column[
+## Agenda
+]
+
+.right-column[
+- Why Vue.js?
+- Getting Started with Vue.js
+- Components and Template Syntax
+- Inter-component Communication
+- Routing
+- Managing State with Vuex
+- Custom Directives and Filters
+- Packaging and Deploying Your App.
+]
+
+---
+
+class: center, middle, inverse
+# Why Choose Vue.js?
+
+---
+
+class: middle
+.left-column[
+## Why Vue.js?
+]
+
+--
+
+.right-column[
+<img src="img\taken-js.jpg" width="70%"/>
+]
+
+---
+
+class: middle
+.left-column[
+## Why Vue.js?
+]
+
+--
+
+class: center
+.right-column[
+<img src="img\vueLogo.png" width="40%"/>
+]
+
+--
+class: left
+.right-column[
+Vue is a progressive framework for building user interfaces. 
+Unlike other monolithic frameworks, Vue is designed from the ground up to be incrementally adoptable. The core library is 
+focused on the view layer only, and is easy to pick up and integrate with other libraries or existing projects. On the other 
+hand, Vue is also perfectly capable of powering sophisticated Single-Page Applications when used in combination with modern 
+tooling and supporting libraries.
+]
+
+
+---
+
+class: middle
+.left-column[
+## Why Vue.js?
+
+### - Easy to learn
+]
+
+.right-column[
+
+]
+
+---
+
+class: middle
+.left-column[
+## Why Vue.js?
+
+### - Easy to learn
+
+### - Great Performance
+]
+
+---
+
+class: middle
+.left-column[
+## Why Vue.js?
+
+### - Easy to learn
+### - Great Performance
+
+### - Vue.js is not opinionated
+]
+
+---
+
+class: middle
+.left-column[
+## Why Vue.js?
+
+### - Easy to learn
+### - Great Performance
+### - Vue.js is not opinionated
+
+### - Vue.js is simple
+]
+
+---
+
+.left-column[
+## Getting Started
+
+### Tooling
+### Setting up your environment
+### The Vue CLI
+
+]
+
+---
+
+class: top
+.left-column[
+## Vue Components
+
+### Single File vs *
+### Anatomy of a Vue Component
+### Attribute Binding
+### Event Binding
+### Shorthand Bindings
+]
+
+---
+
+class: top
+.left-column[
+## Vue Components
+
+### Binding to Computed Properties
+### Interpolation
+### Condtional Displays
+### Iterating Data
+]
+
+---
+
+class: top
+.left-column[
+## Vue Components
+
+### Styling Components
+### Lifecycle Hooks
+### Mixins
+]
+
+---
+
+class: top 
+.left-column[
+## Component Communication
+
+### Child Components
+### Sharing Data with Props 
+### Vue Events
+### Slots
+]
+
+---
+
+class: top 
+.left-column[
+## Component Communication
+
+### Child Components
+### Sharing Data with Props 
+### Vue Events
+### Slots
+]
+
+---
+
+class: top 
+.left-column[
+## Routing
+
+### Setting up Routing
+### RouterLink
+### Navigate from Code
+### Route Parameters
+]
+
+---
+
+class: top 
+.left-column[
+## Managing State with Vuex
+
+### Stores
+### Mutations
+### Getters
+### Modules
+]
+
+
+---
+
+class: top 
+.left-column[
+## Directives and Filters
+
+### Custom Directives
+### Passing Data to Directives
+### Directive Lifecyle Hooks
+### Custom Filters
+### Global Accessibility
+]
+
+
+
+
+
 
     </textarea>
     <script src="https://remarkjs.com/downloads/remark-latest.min.js">
