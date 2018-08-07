@@ -517,6 +517,16 @@ class: top
 
 ### Styling Components
 ]
+.right-column[
+A common requirement for applications is manipulating an elements class and inline styles.  This is easy with Vue, it is simply the same attibute binding as we saw earlier:
+```html 
+<div v-bind:class="[activeClass, errorClass]"></div>
+```
+The variables ```activeClass``` and ```errorClass``` might be data properties or they could be computed values.  With Vue it is up to you.
+
+] 
+
+---
 
 class: top
 .left-column[
@@ -525,8 +535,26 @@ class: top
 ### Styling Components
 ### Lifecycle Hooks
 ]
+.right-column[
+Vue components several lifecycle hooks allowing you to add your own code at specific stages.  Some common lifecycle hooks are:
+- created
+- mounted
+- updated
+- destroyed
 
----
+Lifecycle hooks are named functions on the component:
+```javascript
+new Vue({
+    data: {
+      a: 1
+    },
+    created: function () {
+      console.log('a is: ' + this.a)
+    }
+  })
+```
+]
+
 ---
 
 class: top
@@ -536,6 +564,61 @@ class: top
 ### Styling Components
 ### Lifecycle Hooks
 ### Mixins
+]
+.right-column[
+Mixins are a flexible way to distribute reusable functionalities for Vue components.
+```javascript 
+export default {
+    created() {
+        console.log('component created from mixin.');
+    }
+};
+```
+Now each component that uses the mixin will write to the console during its created lifecycle hook.
+]
+
+---
+
+class: top 
+.left-column[
+## Component Data
+
+### Child Components
+]
+.right-column[
+Only the most simplistic applications will have a single component.  As our applications grow we will add components to handle specific requirements.
+The components will often be child components, components with a parent ot container.
+<br/>
+<br/>
+To add a child component to a parent container we must:
+- define the child component
+- import it into the parent component 
+- add it to the the parent's components array
+- add the component's tag to the parent's template.
+]
+---
+woodie
+??? 
+demo components/robot-builder
+---
+
+class: top 
+.left-column[
+## Component Data
+
+### Child Components
+### Sharing Data with Props 
+]
+
+---
+
+class: top 
+.left-column[
+## Component Communication
+
+### Child Components
+### Sharing Data with Props 
+### Vue Events
 ]
 
 ---
